@@ -15,11 +15,11 @@
 6. 导出：↓ GIF（循环动图，自动压缩静止帧）/ ↓ WebM（透明背景）/ ↓ 透明 PNG
 
 ## AI 抠图说明
-- 模型为 `briaai/RMBG-1.4`（ONNX q8 量化，约 44MB），与页面一起托管在本仓库 `models/` 目录，无需访问 huggingface.co
+- 模型为 `briaai/RMBG-1.4`（ONNX q8 量化，约 44MB），与页面、Transformers.js 库及 wasm 全部托管在本仓库同源目录（`models/`、`lib/`），不依赖 huggingface.co，也不依赖任何外部 CDN
 - 首次点击抠图需下载模型（约 44MB），之后浏览器自动缓存，秒开
 - 抠图后自动做去描边处理：去淡边、收缩半透明带、边缘颜色去色晕，保证干净无白边
 
 ## 技术说明
-- 抠图引擎：Transformers.js（jsdelivr CDN）+ RMBG-1.4 ONNX（自托管）
+- 抠图引擎：Transformers.js + RMBG-1.4 ONNX，全部自托管
 - GIF 由内置编码器生成（中位切分 256 色 + LZW）
 - 导出 WebM 建议使用 Chrome / Edge
