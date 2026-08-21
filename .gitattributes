@@ -1,0 +1,2 @@
+﻿*.onnx -text filter=
+models/** -text
